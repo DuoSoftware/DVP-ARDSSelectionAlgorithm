@@ -49,5 +49,6 @@ func main() {
 	InitiateRedis()
 	gorest.RegisterService(new(SelectionAlgo))
 	http.Handle("/", gorest.Handle())
-	http.ListenAndServe(":2228", nil)
+	addr := fmt.Sprintf(":%s", port)
+	http.ListenAndServe(addr, nil)
 }
